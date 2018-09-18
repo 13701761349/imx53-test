@@ -1,0 +1,76 @@
+#####   ipu dev test config file ##########
+#
+# fourcc ref:
+#	RGB565->RGBP
+#	BGR24 ->BGR3
+#	RGB24 ->RGB3
+#	BGR32 ->BGR4
+#	BGRA32->BGRA
+#	RGB32 ->RGB4
+#	RGBA32->RGBA
+#	ABGR32->ABGR
+#	YUYV  ->YUYV
+#	UYVY  ->UYVY
+#	YUV444->Y444
+#	NV12  ->NV12
+#	YUV420P->I420
+#	YUV422P->422P
+#	YVU422P->YV16
+#
+# rotation ref:
+# 	IPU_ROTATE_NONE = 0,
+#	IPU_ROTATE_VERT_FLIP = 1,
+#	IPU_ROTATE_HORIZ_FLIP = 2,
+#	IPU_ROTATE_180 = 3,
+#	IPU_ROTATE_90_RIGHT = 4,
+#	IPU_ROTATE_90_RIGHT_VFLIP = 5,
+#	IPU_ROTATE_90_RIGHT_HFLIP = 6,
+#	IPU_ROTATE_90_LEFT = 7,
+#
+# mode ref:
+# 	TASK_ENC = 0x1
+# 	TASK_VF = 0x2
+# 	TASK_PP = 0x4
+# 	TASK_VDI_VF = 0x8
+# 	NORMAL_MODE = 0x10
+# 	STREAM_MODE = 0x20
+#
+# video de-interlace motion ref:
+#	MEDIUM_MOTION = 0
+#	LOW_MOTION = 1
+#	HIGH_MOTION = 2
+#
+
+#### mode
+mode=0x24
+
+#### operation frame count
+fcount=50
+
+#### operation loop count
+loop_cnt=1
+
+#### input
+in_width=320
+in_height=240
+in_fmt=I420
+#input crop
+in_posx=0
+in_posy=0
+in_win_w=0
+in_win_h=0
+#input motion(video de-interlace)
+motion_sel=0
+
+#### output
+out_width=1024
+out_height=768
+out_fmt=UYVY
+out_rot=0
+#output to framebuffer
+out_to_fb=1
+out_fb_num=2
+out_posx=0
+out_posy=0
+#output to file
+out_filename=output.dat
